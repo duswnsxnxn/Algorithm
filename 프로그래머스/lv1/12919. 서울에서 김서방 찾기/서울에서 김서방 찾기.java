@@ -1,13 +1,7 @@
+import java.util.stream.IntStream;
 class Solution {
     public String solution(String[] seoul) {
 
-        int location = 0;
-        for (int i = 0; i < seoul.length; i++) {
-            if (seoul[i].equals("Kim")) {
-                location = i;
-                break;
-            }
-        }
-        return "김서방은 " + location +  "에 있다";
+        return "김서방은 " + IntStream.range(0, seoul.length).filter(i -> seoul[i].equals("Kim")).min().orElse(-1) +  "에 있다";
     }
 }
